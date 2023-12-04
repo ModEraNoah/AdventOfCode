@@ -12,8 +12,8 @@ function getFileRows(path: string): string[] {
 // const rows: string[] = getFileRows("day-04/1/day-04-test.txt");
 const rows: string[] = getFileRows("day-04/1/day-04-input.txt");
 
-const leftSide: any = [];
-const rightSide: any = [];
+const leftSide: number[][] = [];
+const rightSide: number[][] = [];
 for (let i = 0; i < rows.length; i++) {
     const partedArray = rows[i].split("|");
     leftSide.push(
