@@ -36,22 +36,20 @@ for (let i = 0; i < rows.length; i++) {
     );
 }
 
-const gameCallsWho: Map<number, number[]> = new Map();
 const howManyTimesGetCalled = new Array(rows.length).fill(1);
+
 for (let i = 0; i < rows.length; i++) {
     console.log("Game", i + 1, "gets called x times:", howManyTimesGetCalled[i]);
+
     let counter: number = 0;
+
     for (let j = 0; j < leftSide[i].length; j++) {
         if (rightSide[i].includes(leftSide[i][j])) {
             counter++;
+            // as each [i+counter] gets called n times by the item [i]
+            howManyTimesGetCalled[i + counter] += howManyTimesGetCalled[i];
         }
     }
-    const temp: number[] = [];
-    for (let j = 1; j <= counter; j++) {
-        temp.push(i + j);
-        howManyTimesGetCalled[i + j] += 1 * howManyTimesGetCalled[i];
-    }
-    gameCallsWho.set(i, temp);
 }
 
 console.log(
