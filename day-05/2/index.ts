@@ -19,7 +19,7 @@ console.log(seeds);
 
 rows.shift();
 
-let goTo: any = [];
+const goTo: number[][] = [];
 rows.forEach((row) => {
     goTo.push(
         row
